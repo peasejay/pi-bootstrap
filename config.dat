@@ -1,6 +1,10 @@
-#WIFI_SSID=
-#WIFI_PSK=
+LOCALE=en_US.UTF-8
+
 # It's probably better to set the wifi stuff in your localconfig file
 #WIFI_SSID=
 #WIFI_PSK=
-LOCALE=en_US.UTF-8
+
+GIT_PUSH_DEFAULT=simple
+#GIT_NAME=
+#GIT_EMAIL=
+

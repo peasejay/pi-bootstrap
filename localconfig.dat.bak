@@ -1,3 +1,6 @@
 # use this file to override any of the globalconfigs
 #WIFI_SSID=Your WIFI Network
 #WIFI_PSK=Your wifi password
+
+#GIT_NAME=Your git name
+#GIT_EMAIL=Your git email

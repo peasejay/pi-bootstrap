@@ -59,4 +59,7 @@ sed -i "s/^\(en_GB.UTF-8.*\)/# \1/" $LOCALE_CONFIG
 sed -i "s/^# \($LOCALE.*\)/\1/" $LOCALE_CONFIG
 locale-gen
 
-
+echo "Setting up git configurations"
+git config --global user.name "$GIT_NAME"
+git config --global user.email "$GIT_EMAIL"
+git config --global push.default $GIT_PUSH_DEFAULT
