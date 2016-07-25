@@ -1,6 +1,6 @@
 LOCALE=en_US.UTF-8
 KB_LOCALE=us
-
+HOSTNAME=demo
 
 # It's probably better to set the wifi stuff in your localconfig file
 #WIFI_SSID=
@@ -9,4 +9,3 @@ KB_LOCALE=us
 GIT_PUSH_DEFAULT=simple
 #GIT_NAME=
 #GIT_EMAIL=
-

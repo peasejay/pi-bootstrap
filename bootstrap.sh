@@ -7,6 +7,7 @@ fi
 
 
 WIFI_CONFIG=/etc/wpa_supplicant/wpa_supplicant.conf
+HOSTS_CONFIG=/etc/hosts
 LOCALE_CONFIG=/etc/locale.gen
 KB_LOCALE_CONFIG=/etc/default/keyboard
 
@@ -68,10 +69,16 @@ invoke-rc.d keyboard-setup start
 udevadm trigger --subsystem-match=input --action=change
 echo
 
+echo "Updating hostname..."
+echo $HOSTNAME > /etc/hostname
+sed -i "s/127.0.1.1.*/127.0.1.1\t$HOSTNAME/g" $HOSTS_CONFIG
+echo
+
+
 echo "Setting up git configurations"
-git config --global user.name "$GIT_NAME"
-git config --global user.email "$GIT_EMAIL"
-git config --global push.default $GIT_PUSH_DEFAULT
+sudo -H -u pi bash -c 'git config --global user.name "$GIT_NAME"'
+sudo -H -u pi bash -c 'git config --global user.email "$GIT_EMAIL"'
+sudo -H -u pi bash -c 'git config --global push.default $GIT_PUSH_DEFAULT'
 echo
 
 echo "Configurations complete."
