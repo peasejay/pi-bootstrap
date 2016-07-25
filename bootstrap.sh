@@ -8,6 +8,8 @@ fi
 
 WIFI_CONFIG=/etc/wpa_supplicant/wpa_supplicant.conf
 LOCALE_CONFIG=/etc/locale.gen
+KB_LOCALE_CONFIG=/etc/default/keyboard
+
 
 . ./config.dat
 if [ -e ./localconfig.dat ]; then
@@ -58,8 +60,22 @@ sed -i "s/^\(en_GB.UTF-8.*\)/# \1/" $LOCALE_CONFIG
 # activate preferred defaults
 sed -i "s/^# \($LOCALE.*\)/\1/" $LOCALE_CONFIG
 locale-gen
+echo
+
+echo "Updating keyboard locales..."
+sed -i "s/^XKBLAYOUT.*/XKBLAYOUT=\"$KB_LOCALE\"/" $KB_LOCALE_CONFIG
+invoke-rc.d keyboard-setup start
+udevadm trigger --subsystem-match=input --action=change
+echo
 
 echo "Setting up git configurations"
 git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
 git config --global push.default $GIT_PUSH_DEFAULT
+echo
+
+echo "Configurations complete."
+echo "You may need to restart for some options to take effect."
+echo
+echo "Please have a nice day."
+echo

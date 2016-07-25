@@ -1,4 +1,6 @@
 LOCALE=en_US.UTF-8
+KB_LOCALE=us
+
 
 # It's probably better to set the wifi stuff in your localconfig file
 #WIFI_SSID=
