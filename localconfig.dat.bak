@@ -1,0 +1,3 @@
+# use this file to override any of the globalconfigs
+#WIFI_SSID=Your WIFI Network
+#WIFI_PSK=Your wifi password
